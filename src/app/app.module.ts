@@ -1,28 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HeaderModule } from './header/header.module';
+import { MainModule } from './main/main.module';
+import { MainRoutingModule } from './main/main-routing.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { NavComponent } from './header/nav/nav.component';
-import { MainComponent } from './main/main.component';
-import { PostsComponent } from './main/posts/posts.component';
-import { PostListComponent } from './main/post-list/post-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    NavComponent,
-    MainComponent,
-    PostsComponent,
-    PostListComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
+    HeaderModule,
+    MainModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MainRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
