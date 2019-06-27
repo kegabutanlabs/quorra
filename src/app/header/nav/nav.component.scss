@@ -15,8 +15,13 @@
   @include border-radius(50%);
   margin-left: .2rem;
 
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
   &.active {
-    background-color: $primary;
+    background-color: $gray-300;
     color: $white;
 
     &:hover {
@@ -26,15 +31,28 @@
 }
 
 .nav-link-icon {
+  width: 24px;
   height: 24px;
   display: inline-block;
-  padding-left: 1rem;
+  margin-left: 1rem;
   font-size: $font-size-lg;
+}
+
+@include media-breakpoint-up(lg) {
+  .nav-link {
+    font-size: $font-size-lg;
+  }
+
+  .nav-link-icon {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 @include media-breakpoint-down(md) {
   .sidenav-mobile {
     background-color: #fff;
+    width: initial;
     height: 100%;
     width: 300px;
     position: fixed;
@@ -43,7 +61,7 @@
     left: -100%;
     overflow-x: hidden;
     transition: 0.2s;
-    margin-top: 75px;
+    margin-top: 74px;
 
     &.show {
       left: 0;
@@ -70,6 +88,6 @@
   }
 
   .nav-link-icon {
-    padding-right: 1rem;
+    margin-right: 1rem;
   }
 }
