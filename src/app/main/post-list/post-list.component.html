@@ -1,3 +1,17 @@
-<p>
-  post-list works!
-</p>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-xl-4" *ngFor="let d of data.items; let i = index;">
+        <article class="blog-card">
+            <img [src]="d.images[0].url" class="blog-card__image" alt="thumbnail">
+            <div class="blog-card__body">
+                <span class="blog-card__label" >{{d.labels[0]}}</span>
+                <h4 class="blog-card__title">{{d.title}}</h4>
+                <p class="blog-card__text">oleh <a class="author-name" href="#">dwzzzl</a></p>
+            </div>
+        </article>
+        <div class="row" *ngIf="i % 2 === 0">
+            <div class="col-md-12">
+                <!-- <ng-adsense></ng-adsense> -->
+            </div>
+        </div>
+    </div>
+</div>
