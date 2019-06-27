@@ -1,0 +1,13 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "../../scss/variables";
+
+.main-wrapper {
+  margin-top: 10rem;
+}
+
+@include media-breakpoint-down(md) {
+  .main-wrapper {
+    margin-top: 7rem;
+  }
+}
