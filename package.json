@@ -21,6 +21,7 @@
     "@angular/router": "~7.2.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "ng2-adsense": "^5.4.3",
     "ngx-bootstrap": "^4.3.0",
     "ngx-disqus": "^2.4.3",
     "rxjs": "~6.3.3",
