@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AdsenseModule } from 'ng2-adsense';
 
 import { HeaderModule } from './header/header.module';
 import { MainModule } from './main/main.module';
@@ -22,11 +21,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MainModule,
     BrowserModule,
     AppRoutingModule,
-    MainRoutingModule,
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-9305328163038270',
-      adSlot: 4536593384,
-    })
+    MainRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
