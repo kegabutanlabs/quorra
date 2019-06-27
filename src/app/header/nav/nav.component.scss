@@ -1,0 +1,75 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "../../../scss/variables";
+
+.navside-button {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  font-size: $font-size-lg;
+  @include border-radius(50%);
+  margin-left: .2rem;
+
+  &.active {
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.nav-link-icon {
+  height: 24px;
+  display: inline-block;
+  padding-left: 1rem;
+  font-size: $font-size-lg;
+}
+
+@include media-breakpoint-down(md) {
+  .sidenav-mobile {
+    background-color: #fff;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.2s;
+    margin-top: 75px;
+
+    &.show {
+      width: 300px;
+    }
+  }
+
+  .nav-item.active {
+    .nav-link {
+      background-color: $gray-100;
+      border-bottom: 1px solid $primary;
+    }
+
+    .nav-link-icon {
+      color: $primary;
+    }
+  }
+
+  .nav-link {
+    padding: 1rem;
+
+    &:hover {
+      background-color: $gray-100;
+    }
+  }
+
+  .nav-link-icon {
+    padding-right: 1rem;
+  }
+}
