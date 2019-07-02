@@ -1,3 +1,6 @@
+import { appConfigs } from '../app/config';
+
 export const environment = {
-  production: true
+  production: true,
+  app: appConfigs
 };
