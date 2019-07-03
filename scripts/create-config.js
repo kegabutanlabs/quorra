@@ -2,16 +2,16 @@ const fs = require('fs');
 const chalk = require('chalk');
 const file = `export const appConfigs = {
   adsense: {
-    adClient: ${process.env.ADSENSE_CLIENT_ID}, // change this line
-    adSlot: ${process.env.ADSENSE_AD_SLOT_ID} // change this line
+    adClient: '${process.env.ADSENSE_CLIENT_ID}', // change this line
+    adSlot: '${process.env.ADSENSE_AD_SLOT_ID}' // change this line
   },
   API_ENDPOINTS: {
     blog: 'blogs',
     post: 'posts',
     page: 'pages'
   },
-  API_KEY: ${process.env.API_KEY}, // change this line
-  BLOG_ID: ${process.env.BLOG_ID}, // change this line
+  API_KEY: '${process.env.API_KEY}', // change this line
+  BLOG_ID: '${process.env.BLOG_ID}', // change this line
   API_URL: 'https://www.googleapis.com/blogger/v3/'
 };`;
 
