@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import * as path from 'path-browserify';
 
 import { environment } from '../../../environments/environment';
 import { PostUrlService } from './post-url.service';
@@ -28,7 +27,7 @@ export class PostService {
     let apiEndpoint = environment.app.API_ENDPOINTS.post;
     let blogId = environment.app.BLOG_ID;
 
-    this.apiEndpoint = path.join(apiUrl, `/blogs/${blogId}/${apiEndpoint}`);
+    this.apiEndpoint = `${apiUrl}blogs/${blogId}/${apiEndpoint}`;
   }
 
   retrievePosts(maxResults: number, fetchBodies?: boolean): Observable<PostListResponse> {
@@ -50,7 +49,7 @@ export class PostService {
 
   retrievePostByUrl(url: string, fetchBodies?: boolean): Observable<PostItemResponse> {
     let postId = this.postUrl.resolvePostId(url);
-    let apiEndpoint = path.join(this.apiEndpoint, postId);
+    let apiEndpoint = `${this.apiEndpoint}/${postId}`;
     let bodies = (typeof fetchBodies === 'undefined') ? true : fetchBodies;
     let paramOptions = {
       params: new HttpParams()
