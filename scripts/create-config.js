@@ -3,7 +3,9 @@ const chalk = require('chalk');
 const file = `export const appConfigs = {
   adsense: {
     adClient: '${process.env.ADSENSE_CLIENT_ID}', // change this line
-    adSlot: '${process.env.ADSENSE_AD_SLOT_ID}' // change this line
+    adSlot: '${process.env.ADSENSE_AD_SLOT_ID}', // change this line
+    pageLevelAds: '${process.env.ADSENSE_PAGE_LEVEL_ADS}',
+    display: 'block'
   },
   API_ENDPOINTS: {
     blog: 'blogs',
