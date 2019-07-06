@@ -8,7 +8,7 @@
   margin: 1rem;
   margin-top: 0;
   max-width: 100%;
-  height: 350px;
+  height: 380px;
   background-color: $white;
   border-radius: 25px;
   text-decoration: none;
@@ -36,7 +36,12 @@
     font-weight: $font-weight-bold;
     color: $black;
     margin: .5rem 0;
-    line-spacing: 1.5;
+    max-height: 70px;
+    overflow: hidden;
+
+    .title-link {
+      color: $black;
+    }
   }
 
   .blog-card__label {
@@ -48,7 +53,7 @@
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(sm) {
 
   .blog-card {
     height: auto;
