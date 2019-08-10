@@ -14,6 +14,7 @@
   font-size: $font-size-lg;
   @include border-radius(50%);
   margin-left: .2rem;
+  margin-top: .3rem;
 
   img {
     width: 24px;
@@ -30,12 +31,88 @@
   }
 }
 
+.navbar-brand img {
+  margin-left: 2rem;
+  display: block;
+}
+
 .nav-link-icon {
   width: 24px;
   height: 24px;
   display: inline-block;
   margin-left: 1rem;
   font-size: $font-size-lg;
+}
+
+.search-nav {
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+
+  .form-search > .input-group {
+    > .search-input {
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-color: $blue;
+      border-right: 0;
+    }
+
+    .search-button {
+      background-color: $white;
+      color: $blue;
+      border-left: 0;
+      border-color: $blue;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+
+      &:focus {
+        outline: 0;
+      }
+
+    }
+  }
+}
+
+.sidenav-mobile {
+  background-color: #fff;
+  width: initial;
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -100%;
+  overflow-x: hidden;
+  transition: 0.2s;
+  margin-top: 81px;
+  padding-bottom: 81px;
+  box-shadow: 0px 6px 7px 1px #c1c1c1;
+
+  &.show {
+    left: 0;
+  }
+}
+
+.nav-item.active {
+  .nav-link {
+    background-color: $gray-100;
+    border-bottom: 1px solid $primary;
+  }
+
+  .nav-link-icon {
+    color: $primary;
+  }
+}
+
+.nav-link {
+  padding: 1rem;
+
+  &:hover {
+    background-color: $gray-100;
+  }
+}
+
+.nav-link-icon {
+  margin-right: 1rem;
 }
 
 @include media-breakpoint-up(lg) {
@@ -49,45 +126,9 @@
   }
 }
 
-@include media-breakpoint-down(md) {
-  .sidenav-mobile {
-    background-color: #fff;
-    width: initial;
-    height: 100%;
-    width: 300px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: -100%;
-    overflow-x: hidden;
-    transition: 0.2s;
-    margin-top: 74px;
-
-    &.show {
-      left: 0;
-    }
-  }
-
-  .nav-item.active {
-    .nav-link {
-      background-color: $gray-100;
-      border-bottom: 1px solid $primary;
-    }
-
-    .nav-link-icon {
-      color: $primary;
-    }
-  }
-
-  .nav-link {
-    padding: 1rem;
-
-    &:hover {
-      background-color: $gray-100;
-    }
-  }
-
-  .nav-link-icon {
-    margin-right: 1rem;
+@include media-breakpoint-down(sm) {
+  .navbar-brand img {
+    text-align: center;
+    margin: 0;
   }
 }
