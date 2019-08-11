@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { HeaderModule } from './header/header.module';
 import { MainModule } from './main/main.module';
-import { MainRoutingModule } from './main/main-routing.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,8 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HeaderModule,
     MainModule,
     BrowserModule,
-    AppRoutingModule,
-    MainRoutingModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
