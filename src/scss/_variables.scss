@@ -6,15 +6,15 @@
 // Color system
 
 $white:    #fff ;
-$gray-100: #f8f9fa ;
-$gray-200: #e9ecef ;
-$gray-300: #dee2e6 ;
-$gray-400: #ced4da ;
-$gray-500: #adb5bd ;
-$gray-600: #6c757d ;
-$gray-700: #495057 ;
-$gray-800: #343a40 ;
-$gray-900: #212529 ;
+$gray-100: #DCDCDC ;
+$gray-200: #D0D0D0 ;
+$gray-300: #BEBEBE ;
+$gray-400: #A9A9A9 ;
+$gray-500: #989898 ;
+$gray-600: #808080 ;
+$gray-700: #696969 ;
+$gray-800: #585858 ;
+$gray-900: #404040 ;
 $black:    #000 ;
 
 $grays: () ;
@@ -34,11 +34,11 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #3498db ;
+$blue:    #3aa4e4 ;
 $indigo:  #7c97ee ;
 $purple:  #8e44ad ;
-$pink:    #f4a4b1 ;
-$red:     #c0392b ;
+$pink:    #f2546d ;
+$red:     #c72b19 ;
 $orange:  #e67e22 ;
 $yellow:  #f1c40f ;
 $green:   #27ae60 ;
@@ -158,8 +158,8 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $gray-100 ;
-$body-color:                $gray-900 ;
+$body-bg:                   #f5f5f5 ;
+$body-color:                $gray-700 ;
 
 
 // Links
