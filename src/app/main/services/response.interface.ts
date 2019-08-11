@@ -3,7 +3,7 @@ export interface ErrorResponse {
     errors: Array<object>,
     code: number,
     message: string
-  }
+  };
 }
 
 export interface PostListResponse {
@@ -30,7 +30,9 @@ export interface PostItemResponse {
     id: string;
     displayName: string;
     url: string;
-    image: object;
-  }
-  labels: Array<string>
+    image: {
+      url: string;
+    };
+  };
+  labels: Array<string>;
 }
