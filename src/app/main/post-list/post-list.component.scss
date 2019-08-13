@@ -2,65 +2,174 @@
 @import "node_modules/bootstrap/scss/mixins";
 @import "../../../scss/variables";
 
-.blog-card {
-  display: block;
-  position: relative;
-  margin: 1rem;
-  margin-top: 0;
-  max-width: 100%;
-  height: 380px;
-  background-color: $white;
-  border-radius: 25px;
-  text-decoration: none;
-  overflow: hidden;
-  border: 1px solid $gray-300;
-  box-shadow: $box-shadow-sm;
-  transition: all 0.3s ease-out;
+/* ===========================================
+ * Post list header
+ * ===========================================
+ */
 
-  &:hover {
-    border: 1px solid $primary;
+.header {
+  margin: 0 0 2rem;
+
+  .title {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $gray-900;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+      border-top: 1px solid;
+      flex: 1 0 20px;
+      margin: 0 0 0 20px;
+    }
   }
 }
 
-.blog-card__image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+/* ===========================================
+ * Post item
+ * ===========================================
+ */
+
+.post-item {
+  min-height: 200px;
+  max-height: 250px;
+  margin: 0 0 3rem 0;
+  background-color: #fff;
+
+  &-thumbnail {
+    max-width: 250px;
+    min-height: 200px;
+    max-height: 250px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-thumbnail a {
+    width: 100%;
+    height: 100%
+  }
+
+  &-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: $gray-300;
+  }
+
+  &-title {
+    color: $gray-700;
+    font-weight: $font-weight-bold;
+  }
+
+  &-title a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-.blog-card__body {
-  padding: 1rem;
+// Medium devices (tablets, less than 992px)
+@include media-breakpoint-down(md) {
+  .post-item {
+    max-height: 100%;
 
-  .blog-card__title {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    color: $black;
-    margin: .5rem 0;
-    max-height: 70px;
-    overflow: hidden;
+    &-title {
+      margin-bottom: 2rem;
+    }
+  }
+}
 
-    .title-link {
-      color: $black;
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {
+  
+}
+
+// Extra small devices (portait phones, less than 576px)
+@include media-breakpoint-down(md) {
+  .post-item-thumbnail {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .post-item-thumbnail img {
+    width: 100%;
+    object-fit: unset;
+    height: auto;
+    background-color: $gray-100;
+  }
+}
+
+/* ===========================================
+ * Content
+ * ===========================================
+ */
+
+.post-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+// Small devices (landscape phones, less than 768px)
+@include media-breakpoint-down(sm) {
+  .post-item-content {
+    margin: 1rem 0;
+  }
+}
+
+/* ===========================================
+ * Footer
+ * ===========================================
+ */
+
+.post-item-footer {
+
+  span {
+    margin-right: .5rem;
+    font-size: $font-size-sm;
+    color: $gray-900;
+    background-color: $gray-100;
+    transition: all 0.5s ease;
+  }
+
+  span a {
+    color: $gray-900;
+    padding: .5rem;
+
+    &:hover {
+      color: $white;
     }
   }
 
-  .blog-card__label {
-    font-size: $font-size-base;
-    color: $gray-600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
+  .label, .comment {
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+
+  .author, .author-name, .date {
+    background-color: transparent;
   }
 }
 
-@include media-breakpoint-down(sm) {
-
-  .blog-card {
-    height: auto;
+.author {
+  .author-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
   }
 
-  .blog-card__image {
-    height: auto;
-    object-fit: contain
+  .author-name {
+    margin-left: .5rem;
   }
 }

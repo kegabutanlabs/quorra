@@ -1,23 +1,41 @@
-<div class="text-center">
-  <div *ngIf="!posts" class="spinner-border text-primary text-center" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-<div class="row" *ngIf="posts">
-    <div class="col-sm-12 col-md-6 col-xl-4 p-0" *ngFor="let post of posts.items; let i = index;">
-        <article class="blog-card">
-            <img *ngIf="post.images; else elseBlock" [src]="post.images[0].url" class="blog-card__image" alt="thumbnail">
-            <ng-template #elseBlock><img src="https://via.placeholder.com/1280x720.png" class="blog-card__image" alt="thumbnail"></ng-template>
-            <div class="blog-card__body">
-                <span class="blog-card__label" >{{post.labels[0]}}</span>
-                <h4 class="blog-card__title"><a class="title-link" [routerLink]="['/post',resolveUrl(post.title, post.id)]">{{post.title}}</a></h4>
-                <p class="blog-card__text">oleh <a class="author-name" href="{{post.author.url}}" target="_blank">{{post.author.displayName}}</a></p>
+<section class="post-list">
+    <header class="header">
+        <h3 class="title">Latest Posts</h3>
+    </header>
+    <div *ngIf="posts">
+        <article class="post-item row" *ngFor="let post of posts.items; let i = index;">
+            <figure class="post-item-thumbnail col-lg-3 col-md-12 col-sm-12">
+                <a [routerLink]="['/post', this.postUrlService.resolvePostUrl(post.title, post.id)]">
+                    <img *ngIf="post.images; else elseBlock" [src]="post.images[0].url" alt="post.title">
+                </a>
+                <ng-template #elseBlock>
+                    <a [routerLink]="['/post', this.postUrlService.resolvePostUrl(post.title, post.id)]">
+                        <img src="https://via.placeholder.com/1280x720.png" alt="post.title">
+                    </a>
+                </ng-template>
+            </figure>
+            <div class="post-item-content col-lg-9 col-md-12 col-sm-12">
+                <h4 class="post-item-title">
+                    <a [routerLink]="['/post', this.postUrlService.resolvePostUrl(post.title, post.id)]">{{post.title}}</a>
+                </h4>
+                <p class="post-item-snippet">{{post.content | striphtml | slice:0:80}}...</p>
+                <div class="post-item-footer">
+                    <span class="label">
+                        <a href="#"><i class="fa fa-tag"></i> {{post.labels[0]}}</a>
+                    </span>
+                    <span class="comment">
+                        <a [routerLink]="['/post', this.postUrlService.resolvePostUrl(post.title, post.id)]" fragment="comment"><i class="fa fa-comment"></i></a>
+                    </span>
+                    <span class="author">
+                        <a [href]="post.author.url">
+                            <img class="author-image" [src]="post.author.image.url">
+                            <span class="author-name">{{post.author.displayName}}</span>
+                        </a>
+                    </span>
+                    <span class="date">{{post.published | date:'d MMMM yyyy'}}</span>
+                </div>
             </div>
         </article>
-        <div class="row" *ngIf="i % 2 === 0">
-            <div class="col-md-12">
-                <!-- <ng-adsense></ng-adsense> -->
-            </div>
-        </div>
     </div>
-</div>
+</section>
+
