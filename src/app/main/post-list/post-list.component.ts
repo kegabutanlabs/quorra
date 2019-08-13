@@ -20,8 +20,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   posts: PostListResponse;
-  post$: Observable<PostListResponse> = this.postService.retrievePosts(10, false);
-  resolveUrl: any = this.postUrlService.resolvePostUrl;
+  post$: Observable<PostListResponse> = this.postService.retrievePosts(5, true);
 
   ngOnInit() {
     this.subscription = this.post$.subscribe((data: PostListResponse) => {
