@@ -14,7 +14,7 @@
       </span>
       <span class="blog-post__meta-data published">Diterbitkan pada: <span class="published__time">{{postData.published | date:'d MMMM yyyy'}}</span></span>
     </section>
-    <figure class="row justify-content-center m-md-0">
+    <figure class="text-center">
       <img *ngIf="postData.images; else elseBlock" class="blog-post__thumbnail" [src]="postData.images[0].url" alt="thumbnail {{postData.title}}">
       <ng-template #elseBlock><img src="https://via.placeholder.com/1280x720.png" class="blog-post__thumbnail" alt="thumbnail"></ng-template>
     </figure>

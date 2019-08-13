@@ -2,9 +2,21 @@
 @import "node_modules/bootstrap/scss/mixins";
 @import "../../../scss/variables";
 
+.blog-post {
+  background-color: $white;
+}
+
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {
+  .blog-post {
+    padding: 2rem;
+  }
+}
+
 .blog-post__header {
   display: block;
   text-align: center;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 
   .blog-post__title {
@@ -26,18 +38,21 @@
   .blog-post__meta-data {
     padding-left: .75rem;
     padding-right: .75rem;
-
-    @include media-breakpoint-down(sm) {
-      font-size: $font-size-sm;
-      padding: 0;
-      flex: 1 0 50%;
-    }
   }
 
   .blog-post__thumbnail {
     width: 100%;
     height: auto;
     box-shadow: $box-shadow-sm;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@include media-breakpoint-down(sm) {
+  .blog-post__header .blog-post__meta-data {
+    font-size: $font-size-sm;
+    padding: 0;
+    flex: 1 0 50%;
   }
 }
 
@@ -61,7 +76,7 @@
 }
 
 .blog-post__content {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   iframe {
     width: 100%;
