@@ -1,18 +1,37 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PostComponent } from './post/post.component';
-import { PostListComponent } from './post-list/post-list.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { PostPageComponent } from './pages/post-page/post-page.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PostListComponent
+    component: HomePageComponent
   },
   {
     path: 'post/:id',
-    component: PostComponent
-  }
+    component: PostPageComponent
+  },
+  {
+    path: 'category/:name',
+    component: SearchPageComponent
+  },
+  {
+    path: 'search',
+    component: SearchPageComponent
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactPageComponent
+  },
 ];
 
 @NgModule({
