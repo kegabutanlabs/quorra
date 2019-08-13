@@ -4,6 +4,10 @@
 
 .main-wrapper {
   margin-top: 10rem;
+
+  section {
+    margin-bottom: 2rem;
+  }
 }
 
 @include media-breakpoint-down(md) {
