@@ -9,7 +9,13 @@ export interface ErrorResponse {
 export interface PostListResponse {
   kind: string;
   nextPageToken: string;
-  items: Array<any>;
+  items: Array<PostItemResponse>;
+  eTag: string;
+}
+
+export interface PostSearchResponse {
+  kind: string;
+  items: Array<PostItemResponse>;
   eTag: string;
 }
 
