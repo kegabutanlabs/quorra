@@ -23,23 +23,23 @@ export class PostService {
   apiKey: string = environment.app.API_KEY;
 
   private assembleConfig() {
-    let apiUrl = environment.app.API_URL;
-    let apiEndpoint = environment.app.API_ENDPOINTS.post;
-    let blogId = environment.app.BLOG_ID;
+    const apiUrl = environment.app.API_URL;
+    const apiEndpoint = environment.app.API_ENDPOINTS.post;
+    const blogId = environment.app.BLOG_ID;
 
     this.apiEndpoint = `${apiUrl}blogs/${blogId}/${apiEndpoint}`;
   }
 
   retrievePosts(maxResults: number, fetchBodies?: boolean): Observable<PostListResponse> {
-    let bodies = (typeof fetchBodies === 'undefined') ? true : fetchBodies;
-    let paramOptions = {
+    const bodies = (typeof fetchBodies === 'undefined') ? true : fetchBodies;
+    const paramOptions = {
       params: new HttpParams()
               .set('maxResults', maxResults.toString())
               .set('prettyPrint', 'false')
               .set('fetchBodies', bodies.toString())
               .set('fetchImages', 'true')
               .set('key', this.apiKey)
-    }
+    };
 
     return this.http.get<PostListResponse>(this.apiEndpoint, paramOptions)
       .pipe(
@@ -48,16 +48,16 @@ export class PostService {
   }
 
   retrievePostByUrl(url: string, fetchBodies?: boolean): Observable<PostItemResponse> {
-    let postId = this.postUrl.resolvePostId(url);
-    let apiEndpoint = `${this.apiEndpoint}/${postId}`;
-    let bodies = (typeof fetchBodies === 'undefined') ? true : fetchBodies;
-    let paramOptions = {
+    const postId = this.postUrl.resolvePostId(url);
+    const apiEndpoint = `${this.apiEndpoint}/${postId}`;
+    const bodies = (typeof fetchBodies === 'undefined') ? true : fetchBodies;
+    const paramOptions = {
       params: new HttpParams()
               .set('prettyPrint', 'false')
               .set('fetchBodies', bodies.toString())
               .set('fetchImages', 'true')
               .set('key', this.apiKey)
-    }
+    };
 
     return this.http.get<PostItemResponse>(apiEndpoint, paramOptions)
       .pipe(
