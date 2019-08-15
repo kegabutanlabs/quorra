@@ -1,34 +1,29 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 
-import { PostService } from '../services/post.service';
-import { PostUrlService } from '../services/post-url.service';
-import { PostListResponse, PostItemResponse } from '../services/response.interface';
+import { PostUrlService } from '../services';
+import { PostListResponse } from '../services/response.interface';
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss']
 })
-export class PostListComponent implements OnInit, OnDestroy {
+export class PostListComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(
-    public postService: PostService,
     public postUrlService: PostUrlService
   ) { }
 
-  private subscription: Subscription;
+  @Input() posts: PostListResponse;
 
-  posts: PostListResponse;
-  post$: Observable<PostListResponse> = this.postService.retrievePosts(5, true);
+  ngOnInit() { }
 
-  ngOnInit() {
-    this.subscription = this.post$.subscribe((data: PostListResponse) => {
-      this.posts = data;
-    });
+  ngOnChanges(changes: SimpleChanges) {
+    // only run when property "posts" changed
+    if (changes.posts) {
+        this.posts = this.posts;
+    }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  ngOnDestroy() { }
 }
