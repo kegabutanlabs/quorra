@@ -15,6 +15,9 @@ export class PostListComponent implements OnInit, OnDestroy, OnChanges {
   ) { }
 
   @Input() posts: PostListResponse;
+  @Input() isStacked = false;
+  @Input() stretchColumn = true;
+  @Input() title: string;
 
   ngOnInit() { }
 

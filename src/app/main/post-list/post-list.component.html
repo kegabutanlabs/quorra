@@ -1,10 +1,11 @@
 <section class="post-list">
     <header class="header">
-        <h3 class="title">Latest Posts</h3>
+        <h3 class="title">{{title}}</h3>
     </header>
-    <div *ngIf="posts">
-        <article class="post-item row" *ngFor="let post of posts.items; let i = index;">
-            <figure class="post-item-thumbnail col-lg-3 col-md-12 col-sm-12">
+    <div *ngIf="posts" class="row">
+        <div [ngClass]="{'col-md-6 col-sm-12': isStacked && !stretchColumn, 'col-md-12': (isStacked && stretchColumn) || !isStacked}" *ngFor="let post of posts.items">
+        <article [class.is-stacked]="isStacked" class="post-item row">
+            <figure [class.col-lg-3]="!isStacked" class="post-item-thumbnail col-md-12 col-sm-12">
                 <a [routerLink]="['/post', this.postUrlService.resolvePostUrl(post.title, post.id)]">
                     <img *ngIf="post.images; else elseBlock" [src]="post.images[0].url" alt="post.title">
                 </a>
@@ -14,7 +15,7 @@
                     </a>
                 </ng-template>
             </figure>
-            <div class="post-item-content col-lg-9 col-md-12 col-sm-12">
+            <div [class.col-lg-9]="!isStacked" class="post-item-content col-md-12 col-sm-12">
                 <h4 class="post-item-title">
                     <a [routerLink]="['/post', this.postUrlService.resolvePostUrl(post.title, post.id)]">{{post.title}}</a>
                 </h4>
@@ -36,6 +37,7 @@
                 </div>
             </div>
         </article>
+        </div>
     </div>
 </section>
 
