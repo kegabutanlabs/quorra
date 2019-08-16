@@ -10,7 +10,7 @@ const file = `export const appConfigs = {
   API_ENDPOINTS: {
     blog: 'blogs',
     post: 'posts',
-    post_search: 'posts/search';
+    post_search: 'posts/search',
     page: 'pages'
   },
   API_KEY: '${process.env.API_KEY}', // change this line
