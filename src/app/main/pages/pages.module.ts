@@ -8,6 +8,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { AsideModule } from '../aside/aside.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AsideModule
   ],
   exports: [
     ItemPageComponent,

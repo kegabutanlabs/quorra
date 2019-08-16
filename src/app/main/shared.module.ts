@@ -10,7 +10,6 @@ import { MainRoutingModule } from './main-routing.module';
 import { AdsenseModule } from 'ng2-adsense';
 import { environment } from 'src/environments/environment';
 import { DisqusModule } from 'ngx-disqus';
-import { AsideModule } from './aside/aside.module';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import { AsideModule } from './aside/aside.module';
     StripHtmlPipe,
     HttpClientModule,
     AdsenseModule,
-    DisqusModule,
-    AsideModule
+    DisqusModule
   ]
 })
 export class SharedModule { }

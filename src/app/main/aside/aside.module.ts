@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AsideComponent } from './aside.component';
-import { AdsenseModule } from 'ng2-adsense';
-import { environment } from 'src/environments/environment';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   declarations: [
@@ -11,10 +10,11 @@ import { environment } from 'src/environments/environment';
   ],
   imports: [
     CommonModule,
-    AdsenseModule.forRoot(environment.app.adsense)
+    SharedModule
   ],
   exports: [
-    AsideComponent
+    AsideComponent,
+    SharedModule
   ]
 })
 export class AsideModule { }

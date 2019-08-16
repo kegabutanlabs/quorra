@@ -5,6 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { SharedModule } from './shared.module';
 import { PagesModule } from './pages/pages.module';
+import { AsideModule } from './aside/aside.module';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,15 @@ import { PagesModule } from './pages/pages.module';
     CommonModule,
     MainRoutingModule,
     PagesModule,
-    SharedModule
+    SharedModule,
+    AsideModule
   ],
   exports: [
     MainComponent,
-    MainRoutingModule
+    MainRoutingModule,
+    PagesModule,
+    SharedModule,
+    AsideModule
   ]
 })
 export class MainModule { }
