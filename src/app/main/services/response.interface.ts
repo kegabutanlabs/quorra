@@ -31,7 +31,9 @@ export interface PostItemResponse {
   url: string;
   title: string;
   content?: string;
-  images?: Array<object>;
+  images?: [
+    { url: string }
+  ];
   author: {
     id: string;
     displayName: string;
