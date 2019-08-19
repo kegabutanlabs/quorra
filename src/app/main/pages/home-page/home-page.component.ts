@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { PostListResponse } from '../../services/response.interface';
-import { PostService } from '../../services';
+import { PostService, MetaService } from '../../services';
 
 @Component({
   selector: 'app-home-page',
@@ -11,7 +11,8 @@ import { PostService } from '../../services';
 export class HomePageComponent implements OnInit, OnDestroy {
 
   constructor(
-    public postService: PostService
+    public postService: PostService,
+    private meta: MetaService
   ) { }
 
   private subscription: Subscription;
@@ -22,6 +23,15 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.subscription = this.post$.subscribe((data: any) => {
       this.postData = data;
     });
+
+    this.meta.setMetaData({
+      title: 'Kegabutan.com - Home',
+      keywords: 'Kegabutan.com, membuat kegabutan menjadi berfaedah',
+      description: 'Membuat kegabutan menjadi berfaedah!',
+      url: document.location.href,
+      imageUrl: document.location.href + 'assets/images/Kegabutan_Logo_BluePink.png'
+    });
+
   }
 
   ngOnDestroy() {
