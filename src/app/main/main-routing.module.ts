@@ -6,6 +6,7 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,12 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'post/:id',
-    component: PostPageComponent
+    path: 'post',
+    component: PostPageComponent,
+    children: [
+      { path: '', redirectTo: '/', pathMatch: 'full' },
+      { path: ':id', component: PostComponent }
+    ]
   },
   {
     path: 'category/:name',
