@@ -275,7 +275,7 @@ $embed-responsive-aspect-ratios: join(
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ;
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Gilroy", "Open Sans" sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ;
 $font-family-base:            $font-family-sans-serif ;
 // stylelint-enable value-keyword-case
@@ -301,7 +301,7 @@ $h5-font-size:                $font-size-base * 1.25 ;
 $h6-font-size:                $font-size-base ;
 
 $headings-margin-bottom:      $spacer / 2 ;
-$headings-font-family:        inherit ;
+$headings-font-family:        "Gilroy" ;
 $headings-font-weight:        500 ;
 $headings-line-height:        1.2 ;
 $headings-color:              inherit ;
